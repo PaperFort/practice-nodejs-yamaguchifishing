@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初心者向けページ</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="BEGINNER">
+        <!-- ヘッダー -->
+        <%- include('header') %>
+        
+        <!-- メイン -->
+        <main class="wrapper">
+            <!-- 題名 -->
+            <h1>初心者向けページ</h1>
+            <div class="beginner-content">
+                <article>
+                    <h2>釣りの種類</h2>
+                    <div class="beginner-info-container">
+                        <div class="beginner-info-item">
+                            <h3>サビキ釣り</h3>
+                            <div class="spot-info-list">
+                                <ul class="list">
+                                    <li>難易度：</li>
+                                    <li>場所：</li>
+                                    
+                                </ul>
+                                <ul class="list">
+                                    <li>★☆☆☆☆</li>
+                                    <li>堤防</li>
+                                </ul>
+                            </div>
+                            <p>サビキ釣りは、堤防などから足元に仕掛けを落とすだけで簡単に釣れるので、初心者にも人気の釣法です。そしてその仕組みはシンプルながら魚の習性を活かした非常に効率的な方法です。まず仕掛けのカゴに入ったオキアミが海中でバラけることで、魚たちが集まります。カゴの近くには餌に模した複数の針があり、その針を餌と勘違いした魚が食らいつきます。その針に掛かった魚が暴れると、近くにいる他の魚もパニックになり、他の針に食い付いてくるという仕組みです。魚の習性を利用し連掛けで大量釣果を望める釣法です。
+    
+                                ターゲットとしては、アジ・イワシ・サバなどの回遊魚を狙うのが一般的であるため、一度ゾーンに入ると果てしなく釣れますが、逆に魚が回遊してこないと全く釣れなくなってしまいます。また、上級者になるとサビキ仕掛けを遠投する「遠投サビキ」という釣法もあり、沖側にいる大物などを狙うこともできます。
+                            </p>
+                        
+                        </div>
+                        <div class="beginner-info-item">
+                            <h3>穴釣り</h3>
+                            <div class="spot-info-list">
+                                <ul class="list">
+                                    <li>難易度：</li>
+                                    <li>場所：</li>
+                                    
+                                </ul>
+                                <ul class="list">
+                                    <li>★☆☆☆☆</li>
+                                    <li>テトラ、磯の隙間</li>
+                                </ul>
+                            </div>
+                            <p>テトラポットや磯の隙間に糸を垂らし、穴に居座っている魚を狙い撃ちするという非常にシンプルな釣法です。単純な仕掛けであるにも関わらず、大変効率的な釣法であり「ボウズ逃れ」と言われるほどの釣果率を誇ります。「灯台下暗し」とは正にこの事で、わざわざ遠投をせずとも足下で簡単に釣れてしまう、一度経験すると病みつきになってしまう魅力的な釣りです。初心者のみならず、釣り上級者にも大変人気です。ターゲットはカサゴ、メバルなどの根魚が基本ですが、稀にハタ系の高級魚も掛かることがあります。</p>
+                        
+                        </div>
+                    </div>
+                    
+                </article>
+                
+                
+
+
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <%- include('footer') %>
+    </div>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

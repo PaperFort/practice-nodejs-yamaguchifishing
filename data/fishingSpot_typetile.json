@@ -1,0 +1,15 @@
+{
+    "id": 0,
+    "name": "",
+    "nameKanji": "",
+    "nameHurigana": "",
+    "imageUrl": "",
+    "city": "",
+    "cityKanji": "",
+    "cityHiragana": "",
+    "details": "",
+    "terrain": "",
+    "hasParking": true,
+    "nearestConvenienceStore": 10,
+    "hasToilet": true
+}

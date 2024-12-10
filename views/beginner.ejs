@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初心者向けページ</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="BIGINER">
+        <!-- ヘッダー -->
+        <%- include('header') %>
+        
+        <!-- メイン -->
+        <main class="wrapper">
+            <!-- 題名 -->
+            <h1>初心者向けページ</h1>
+            <div class="biginer-content">
+                <article>
+                    <h2>コンテンツ</h2>
+                    <div class="beginner-container">
+                        <a href="/beginner/type">
+                            <div class="beginner-item">
+                                    <div class="item-info">
+                                        <h3>釣りの種類</h3>
+                                        <p class="item-subinfo">釣りの種類の定義は、さまざまなジャンルでカテゴライズすることが出来ますが、この記事では大きく「餌を使う釣り」か「餌を使わない釣り（擬似餌）」かの2つに分けて紹介していきます。</p>
+                                        <p>各釣りの難易度を星マークで表しています</p>
+                                    </div>
+                            </div>
+                        </a>
+                        <a href="/beginner/tool">
+                            <div class="beginner-item">
+                                    <div class="item-info">
+                                        <h3>道具</h3>
+                                        <p class="item-subifo">軽い説明</p>
+                                    </div>
+                            </div>
+                        </a>
+                        <a href="beginner-info-manner.html">
+                            <div class="beginner-item">
+                                    <div class="item-info">
+                                        <h3>マナー</h3>
+                                        <p class="item-subifo">軽い説明</p>
+                                    </div>
+                            </div>
+                        </a>
+                        <a href="beginner-info-etc.html">
+                            <div class="beginner-item">
+                                    <div class="item-info">
+                                        <h3>その他</h3>
+                                        <p class="item-subifo">軽い説明</p>
+                                    </div>
+                            </div>
+                        </a>                        
+                    </div>                    
+                </article>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <%- include('footer') %>
+    </div>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

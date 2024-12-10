@@ -1,0 +1,24 @@
+# Node.js関連の不要なファイル
+node_modules/
+package-lock.json
+
+# 環境変数ファイル（セキュリティ上の理由で管理しない）
+.env
+
+#不要なファイル
+public
+# オペレーティングシステムやエディタ関連の不要なファイル
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+
+# IDEやエディタの設定ファイル
+.vscode/
+.idea/
+*.iml
+
+# 一時ファイル
+tmp/
+dist/

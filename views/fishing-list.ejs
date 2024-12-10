@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釣り場一覧</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <%- include('header') %>
+
+    <div id="SPOT-LIST">
+        <!-- メイン   -->
+        <main class="wrapper">
+            <h1>釣り場一覧</h1>
+            <div class="spot-content">
+
+                <!--動的コンテンツ-->
+                <div class="art"></div>
+                
+                <aside class="spot-sidebar">
+                    <h2>市一覧</h2>
+                    <p>市を選択できます。</p>
+                    <ul class="list spot-list">
+                        <li><a href="/fishing-place?city=iwakuni">岩国市</a></li>
+                        <li><a href="/fishing-place?city=ube">宇部市</a></li>
+                        <li><a href="/fishing-place?city=kaminoseki">上関町</a></li>
+                        <li><a href="/fishing-place?city=kudamatu">下松市</a></li>
+                        <li><a href="/fishing-place?city=sanyouonoda">山陽小野田市</a></li>
+                        <li><a href="/fishing-place?city=shimonoseki">下関市</a></li>
+                        <li><a href="/fishing-place?city=syunan">周南市</a></li>
+                        <li><a href="/fishing-place?city=suouooshima">周防大島町</a></li>
+                        <li><a href="/fishing-place?city=nagato">長門市</a></li>
+                        <li><a href="/fishing-place?city=hagi">萩市</a></li>
+                        <li><a href="/fishing-place?city=hikari">光市</a></li>
+                        <li><a href="/fishing-place?city=houhu">防府市</a></li>
+                        <li><a href="/fishing-place?city=yanai">柳井市</a></li>
+                        <li><a href="/fishing-place?city=yamaguchi">山口市</a></li>
+                    </ul>
+                </aside>
+            </div>
+                
+                
+        </main>
+    
+    </div>
+    
+    <!-- フッター -->
+    <%- include('footer') %>
+        
+    <!-- js -->
+    <script>
+        const apiUrl = 'http://localhost:3000/api/fishingSpots'; // サーバーのAPIエンドポイント
+
+        // クエリパラメータの取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const cityQuery = urlParams.get('city'); // URLから'city'クエリパラメータを取得
+    
+        const fetchAndDisplaySpots = async () => {
+            try {
+                const response = await fetch(apiUrl);
+                const spots = await response.json();
+
+                const content = document.querySelector('.art'); // クラス名で最初の要素を取得
+                content.innerHTML = ''; // コンテナをクリア
+
+                // 市ごとにデータをグループ化
+                const groupedByCity = spots.reduce((acc, spot) => {
+                    if (!acc[spot.cityKanji]) {
+                        acc[spot.cityKanji] = [];
+                    }
+                    acc[spot.cityKanji].push(spot);
+                    return acc;
+                }, {});
+
+                // 市の順番をひらがな順にソート（cityHiraganaを基準にソート）
+                const sortedCities = Object.keys(groupedByCity).sort((a, b) => {
+                    const aHiragana = groupedByCity[a][0].cityHiragana;  // ひらがな順で比較
+                    const bHiragana = groupedByCity[b][0].cityHiragana;
+                    return aHiragana.localeCompare(bHiragana);
+                });
+
+                // グループ化されたデータでHTML生成
+                sortedCities.forEach(city => {
+                    const citySection = document.createElement('section');
+                    citySection.classList.add('city-section');
+
+                    // 市の名前を見出しに追加
+                    const cityHeading = document.createElement('h2');
+                    cityHeading.textContent = city;
+                    content.appendChild(cityHeading);
+
+                    // コンテナを追加
+                    const containerAdd = document.createElement('div');
+                    containerAdd.classList.add('spot-container');
+
+                    // 各釣り場を市のセクション内に追加
+                    groupedByCity[city].forEach(spot => {
+                        const spotItem = document.createElement('div');
+                        spotItem.innerHTML = `
+                            <a href="/fishing-place/info?place=${spot.name}">
+                                <div class="spot-item">
+                                    <img class="item-img" src="${spot.imageUrl || '/images/default.jpeg'}" alt="${spot.nameKanji}の写真">
+                                    <div class="item-info">
+                                        <p>${spot.nameHurigana}</p>
+                                        <h3>${spot.nameKanji}</h3>
+                                        <p>釣り場：${spot.terrain}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                        // 新しく作ったポートアイテムをコンテナに追加
+                        containerAdd.appendChild(spotItem);
+                    });
+
+                    // コンテナをコンテンツに追加
+                    content.appendChild(containerAdd);
+                });
+            } catch (error) {
+                console.error('データ取得エラー:', error);
+                const container = document.querySelector('.spot-container');
+                container.innerHTML = '<p>データを取得できませんでした。</p>';
+            }
+        };
+
+        fetchAndDisplaySpots();
+
+        // ページロード時にデータを取得
+        window.onload = fetchAndDisplaySpots;
+    </script>
+            
+    
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
