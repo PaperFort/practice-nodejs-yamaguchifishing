@@ -4,6 +4,7 @@
 
 ## プロジェクト構成
 
+```
 yamaguchi-fishing
 └── server.js  
     ├── package.json  
@@ -41,6 +42,7 @@ yamaguchi-fishing
         ├── begginer-info-tool.ejs  
         ├── header.ejs  
         └── footer.ejs 
+```
 
 ## 使用技術
 
