@@ -17,10 +17,4 @@ const PlaceSchema = new mongoose.Schema({
     hasToilet: { type: Boolean, required: true, default: false }        // トイレの有無
 });
 
-
-
-
-
 module.exports = mongoose.model('FishingSpots', PlaceSchema);
-
-
