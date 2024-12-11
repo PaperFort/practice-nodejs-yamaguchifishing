@@ -89,6 +89,8 @@
                     // 市の名前を見出しに追加
                     const cityHeading = document.createElement('h2');
                     cityHeading.textContent = city;
+                    // クエリの値をクラス名として設定
+                    cityHeading.classList.add(); // city変数の値がそのままクラス名になる
                     content.appendChild(cityHeading);
 
                     // コンテナを追加
@@ -123,6 +125,21 @@
                 container.innerHTML = '<p>データを取得できませんでした。</p>';
             }
         };
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // cityが存在する場合にスクロール処理を実行
+            if (cityQuery) {
+                // cityクラスを持つh2要素を検索
+                const cityHeading = document.querySelector(`h2.${city}`);
+
+                if (cityHeading) {
+                // 要素が見つかった場合にスクロール
+                cityHeading.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        });
+    
 
         fetchAndDisplaySpots();
 

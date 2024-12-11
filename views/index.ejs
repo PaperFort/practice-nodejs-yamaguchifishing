@@ -5,14 +5,25 @@
     <title>山口県地図</title>
     <link rel="stylesheet" href="css/styles.css">
 
-    
     <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <script src="<https://cdn.jsdelivr.net/npm/chart.js>"></script>
 </head>
 <body>
-    <!-- ヘッダー -->
-    <%- include('header') %>
+    <header class="belt-header ">
+        <div class="page-header wrapper">
+            <a href="/"><img class="logo" src="images/logotouka.png" alt="ロゴ"></a>
+            <div class="main-title">Fisher's Map Yamaguchi</div>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/fishing-place">漁港一覧</a></li>
+                    <li><a href="/beginner">初心者向け情報</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
 
     <!-- SVGファイルをここに埋め込みます -->
     <svg xmlns="/images/yamagutiMAP.svg" viewBox="0 100 787.5 787.5">
@@ -708,8 +719,20 @@
     
         <path class="cls-6" d="m18.75,18.75h750v750H18.75V18.75ZM0,0v787.5h787.5V0H0Z"/>
     </svg>
-    
-    <!-- フッター -->
-    <%- include('footer') %>
+
+    <h2>⇧　上記地図の市町村をクリックして釣り場マップへ移動！　⇧</h2>
+
+    <footer class="footer">
+        <img class="logo" src="/images/logotouka.png" alt="ロゴ">
+        <nav>
+            <ul class="footer-list">
+                <li><a href="/" class="footer-link">ホーム</a></li>
+                <li><a href="/fishing-place" class="footer-link">漁港一覧</a></li>
+                <li><a href="/biginner" class="footer-link">初心者向け情報</a></li>
+            </ul>
+        </nav>
+        <p class="footer-copyright">@ 2024  All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

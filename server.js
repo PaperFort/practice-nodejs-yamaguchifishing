@@ -1,13 +1,12 @@
 // server.js
 const express = require('express'); //express
 require('dotenv').config(); //.env
+const mongoose = require('mongoose'); //mongoDB
 
 //エンドポイントインポート
 const fishingplaceRouts = require('./routs/fishingplaceRouts');
 const beginnerRouts = require('./routs/beginnerRouts');
 const apiRouts = require('./routs/apiRouts');
-
-const mongoose = require('mongoose'); //mongoDB
 
 const connectDB = require('./config/db.js'); // mongoDB接続
 
