@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/*共通部分
+-------------------------------*/
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "Yu Gothic Medium", "YuGothic";
+  line-height: 1.7;
+  color: #432;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: #432;
+}
+img {
+  max-width: 100%;
+}
+.wrapper {
+  /*ページの最大幅を指定*/
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+.list a {
+  color: #fff;
+}
+.list a:hover {
+  color: #432;
+}
+
+/*HEADER
+-------------------------------*/
+.belt-header {
+  background-color: #4A90E2;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px;
+}
+.logo {
+  width: 80px;
+  margin-top: 14px;
+}
+.main-nav {
+  display: flex;
+  font-size: 1rem;
+  text-transform: uppercase;
+  list-style: none;
+}
+.main-nav li {
+  margin-left: 12px;
+}
+.main-nav a {
+  color: #ffffffff;
+}
+.main-nav a:hover {
+  color: #432;
+}
+
+/*body
+-------------------------------*/
+article {
+  flex: 1 1 800px; /* 基本は800pxの幅、縮小可能 */
+  margin-left: 5px;
+  margin-right: 10px;
+}
+article h2 {
+  margin-left: 0px;
+  width: 100%;
+}
+aside {
+  flex: 1 1 250px; /* 基本は250pxの幅、縮小可能 */
+}
+aside h2 {
+  margin-left: 5px;
+}
+/*spot-list
+-------------------------------*/
+.spot-content {
+  display: flex;
+  flex-wrap: wrap; /* 横幅が足りなくなると自動的に折り返す */
+  margin-bottom: 10px;
+}
+
+/*市ごとの釣り場*/
+.spot-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.spot-item {
+  display: flex;
+  flex-direction: column;
+  background: #0bd;
+  color: #fff;
+  padding: 10px;
+  margin: 0px 5px 10px 5px;
+}
+.spot-item {
+  background-color: #0bd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.spot-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/*市一覧*/
+.spot-sidebar {
+  flex:1 1 100px
+}
+.spot-list {
+  background-color: #0bd;
+}
+
+
+/*spot-info
+-------------------------------*/
+.spot-info-art {
+  display: flex;
+  margin: 5px;
+}
+.spot-img {
+  width: 70%;
+  height:auto;
+  margin-right: 40px;
+}
+.spot-info-info {
+  width: 30%;
+}
+.spot-info-list {
+  display: flex;
+}
+.spot-info-explanation {
+  margin-left: 10px;
+}
+.info-sidebar-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.spot-info-item {
+  width: 250px;
+}
+
+/*beginner.html
+-------------------------------*/
+.beginer-content {
+  width: 500px;
+}
+.beginner-container {
+  display: grid;
+  grid-template-columns: 40% 40% ;
+  gap: 10px;
+}
+.beginner-item {
+  background: #0bd;
+  min-height: 250px;
+  padding: 10px;
+}
+.beginner-item {
+  background-color: #0bd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beginner-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/*beginner-info.html
+-------------------------------*/
+
+/*footer
+-------------------------------*/
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 10px 10px;
+  background-color: #999999;
+}
+
+.footer-logo {
+  width: 130px;
+  height: 30px;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1.5em;
+  list-style-type: none;
+  margin: 0 0 .5em;
+  padding: .5em;
+}
+
+.footer-link {
+  color: #fff;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: #ffffffb3;
+  font-weight: 200;
+  font-size: .8em;
+}
+  
+
