@@ -1,0 +1,349 @@
+@charset "UTF-8";
+/*共通部分
+-------------------------------*/
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "Yu Gothic Medium", "YuGothic";
+  line-height: 1.7;
+  color: #432;
+}
+a {
+  text-decoration: none;
+  color: #000033;
+}
+a:hover {
+  color: #432;
+}
+img {
+  max-width: 100%;
+}
+.wrapper {
+  /*ページの最大幅を指定*/
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+.list a {
+  color: #000033;
+}
+.list a:hover {
+  color: #00EE00;
+}
+
+/*HEADER
+-------------------------------*/
+.belt-header {
+  
+  background-color: #555555	;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px;
+  height: 100px;
+}
+.logo {
+  width: 80px;
+  margin-top: 14px;
+ 
+}
+.main-nav {
+  display: flex;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  list-style: none;
+}
+.main-nav li {
+  margin-left: 12px;
+}
+.main-nav a {
+  color: #ffffffff;
+}
+.main-nav a:hover {
+  color: #432;
+}
+
+/*body
+-------------------------------*/
+article {
+  flex: 1 1 800px; /* 基本は800pxの幅、縮小可能 */
+  margin-left: 5px;
+  margin-right: 10px;
+}
+article h2 {
+  margin-left: 0px;
+  width: 100%;
+}
+aside {
+  flex: 1 1 250px; /* 基本は250pxの幅、縮小可能 */
+}
+aside h2 {
+  margin-left: 5px;
+}
+/*port-list
+-------------------------------*/
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:65px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:25vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
+.port-content {
+  display: flex;
+  flex-wrap: wrap; /* 横幅が足りなくなると自動的に折り返す */
+  margin-bottom: 10px;
+}
+
+.item-info{
+	display: inline-block;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+}
+.item-info:hover {
+	color: #00EE00;
+}
+
+/*市ごとの釣り場*/
+.port-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.port-item {
+  display: flex;
+  flex-direction: column;
+  background: #CCFFFF;
+  color: #000033;
+  padding: 10px;
+  margin: 0px 5px 10px 5px;
+}
+.port-item {
+  background-color: #CCFFFF;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #000033;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.port-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/*市一覧*/
+.port-sidebar {
+  flex:1 1 100px
+}
+.port-list {
+  background-color: #CCFFFF;
+}
+
+
+/*port-info
+-------------------------------*/
+/*漁港名*/
+.port-info-art {
+  display: flex;
+  margin: 5px;
+}
+.port-img {
+  width: 70%;
+  height:auto;
+  margin-right: 40px;
+}
+.port-info-info {
+  width: 30%;
+}
+.port-info-list {
+  display: flex;
+}
+.port-info-explanation {
+  margin-left: 10px;
+}
+.port-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.port-info-item {
+  width: 250px;
+}
+
+/*beginner.html
+-------------------------------*/
+.beginer-content {
+  width: 500px;
+}
+.beginner-container {
+  display: grid;
+  grid-template-columns: 40% 40% ;
+  gap: 10px;
+}
+.beginner-item {
+  background: #0bd;
+  min-height: 250px;
+  padding: 10px;
+}
+.beginner-item {
+  background-color: #0bd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beginner-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/*beginner-info.html
+-------------------------------*/
+
+/*footer
+-------------------------------*/
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 10px 10px;
+  background-color: #555555;
+}
+
+.footer-logo {
+  width: 130px;
+  height: 30px;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1.5em;
+  list-style-type: none;
+  margin: 0 0 .5em;
+  padding: .5em;
+}
+
+.footer-link {
+  color: #fff;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: #ffffffb3;
+  font-weight: 200;
+  font-size: .8em;
+}
+  
+

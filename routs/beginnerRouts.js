@@ -13,6 +13,8 @@ router.get('/type', (req, res) => {
 router.get('/tool', (req, res) => {
     res.render('beginner-info-tool'); //beginner-info-tool.ejsをレンダリング
 })
-
+router.get('/manner', (req, res) => {
+    res.render('beginner-info-manner'); //beginner-info-tool.ejsをレンダリング
+})
 
 module.exports = router;
