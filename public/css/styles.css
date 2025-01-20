@@ -36,57 +36,6 @@ img {
 .list a:hover {
   color: #432;
 }
-
-/*HEADER
--------------------------------*/
-.belt-header {
-  background-color: #555555	;
-}
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-}
-.home-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-}
-.logo {
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main-title {
-  height: 100px;
-  font-size: 40px;
-  color: #fff;
-  text-shadow: 2px 2px 10px #4d9bc1, -2px 2px 10px #4d9bc1, 2px -2px 10px #4d9bc1, -2px -2px 10px #4d9bc1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main-nav {
-  display: flex;
-  text-transform: uppercase;
-  list-style: none;
-}
-.main-nav li {
-  margin-left: 12px;
-}
-.main-nav a {
-  color: #ffffffff;
-}
-.main-nav a:hover {
-  color: #432;
-}
-
-
-/*body
--------------------------------*/
 article {
   flex: 1 1 800px; /* 基本は800pxの幅、縮小可能 */
   margin-left: 5px;
@@ -102,13 +51,111 @@ aside {
 aside h2 {
   margin-left: 5px;
 }
+
+/*HEADER
+-------------------------------*/
+.belt-header {
+  background-color: #999999;
+  height: 10vh;
+}
+
+.page-header {
+	height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; /* ここを調整 */
+}
+
+.logo {
+  height: 80px;  /* 必要に応じて調整 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  height: 100px;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 2px 2px 10px #4d9bc1, -2px 2px 10px #4d9bc1, 2px -2px 10px #4d9bc1, -2px -2px 10px #4d9bc1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;  /* メニュー項目を中央揃え */
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-left: 12px;
+  font-size: 20px;
+}
+
+.main-nav a {
+  color: #ffffff;
+}
+
+.main-nav a:hover {
+  color: #432;
+}
 /*index
 --------------------------------*/
-#INDEX-PAGE .text-explain {
-  text-align: center;
+#INDEX-PAGE svg {
+	width: auto;
+	height: 80vh;
+	display: block;
+	margin: 0 auto;
 }
+#INDEX-PAGE .text-explain {
+  height:10vh;
+  text-align: center;
+  font-size: 40px;
+}
+
 /*spot-list
 -------------------------------*/
+h1 {
+	font-size: 40px;
+	color: #5f9ea0;
+	margin-left: 30%;
+	position: relative;
+	display: inline-block;
+	padding: 0 55px;
+	text-align: center;
+	/* テキストを中央寄せ */
+}
+
+h1:before,
+h1:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	width: 80px;
+	height: 3px;
+	background-color: #5f9ea0;
+}
+
+h1:before {
+	left: -55px;
+	/* 左側の線の位置を調整 */
+}
+
+h1:after {
+	right: -55px;
+	/* 右側の線の位置を調整 */
+}
 .spot-content {
   display: flex;
   flex-wrap: wrap; /* 横幅が足りなくなると自動的に折り返す */
@@ -188,53 +235,17 @@ aside h2 {
 	background-color: #f4f4f4;
 	width: 100%;
 	max-width: 1000px;
-	margin: auto;
 	padding: 0;
 }
 
 /* メインコンテンツ */
-.wrapper {
-	margin-top: 30px;
-}
 
-h1 {
-	font-size: 40px;
-	color: #5f9ea0;
-	margin-left: 30%;
-	position: relative;
-	display: inline-block;
-	padding: 0 55px;
-	text-align: center;
-	/* テキストを中央寄せ */
-}
 
-h1:before,
-h1:after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	display: inline-block;
-	width: 80px;
-	height: 3px;
-	background-color: #5f9ea0;
-}
-
-h1:before {
-	left: -55px;
-	/* 左側の線の位置を調整 */
-}
-
-h1:after {
-	right: -55px;
-	/* 右側の線の位置を調整 */
-}
 
 h2 {
 	position: relative;
-	padding: 0.5em;
 	background: #a6d3c8;
 	color: white;
-	margin-bottom: 5%;
 }
 
 h2::before {
@@ -309,23 +320,7 @@ a {
 	text-decoration: none;
 }
 
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-	.beginner-container {
-		grid-template-columns: 1fr;
-		/* モバイルの場合は1列にする */
-	}
 
-	h1 {
-		font-size: 2rem;
-	}
-
-	.beginner-item {
-		padding: 20px;
-		height: 280px;
-		/* モバイルでは少し小さく */
-	}
-}
 /*beginner-info-type
 -------------------------------*/
    
@@ -336,13 +331,6 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
-
-/* メインラッパー */
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
 /* 釣り情報カードのレイアウト */
@@ -421,10 +409,8 @@ h1:after {
 /* タイトル部分 */
 h2 {
     position: relative;
-  padding: 0.5em;
-  background: #a6d3c8;
-  color: white;
-  margin-top: 10%;
+    background: #a6d3c8;
+    color: white;
 }
 
 h2::before {
@@ -454,13 +440,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     width: 100%;
-    max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
 }
 
 /* メインラッパー */
-.wrapper {
+#BEGINNER-TOOL .wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -542,10 +527,8 @@ h1:after {
 /* タイトル部分 */
 h2 {
     position: relative;
-  padding: 0.5em;
   background: #a6d3c8;
   color: white;
-  margin-top: 6%;
 }
 
 h2::before {
@@ -573,42 +556,16 @@ h2::before {
 
 body{
   width: 100%;
-  max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
   background-color: #f4f4f4;
 }
-
-h1 {
-color: #5f9ea0;
-font-size: 2.5em;
-position: relative;
-padding: 1.5rem 1rem;
-}
-
-h1:after {
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
-height: 10px;
-content: '';
-background-image: -webkit-repeating-linear-gradient(135deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-background-image: repeating-linear-gradient(-45deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-background-size: 7px 7px;
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
-}
-
-
-
 
 /* タイトル部分 */
 h2 {
   position: relative;
-padding: 0.5em;
 background: #a6d3c8;
 color: white;
-margin-top: 7%;
 }
 
 h2::before {
