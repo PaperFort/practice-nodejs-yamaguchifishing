@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>釣り場名</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
     <!-- ヘッダー -->
     <%- include('header') %>
 
-    <div id="SPOT-INFO">
-        <!-- メイン   -->
-        <main class="wrapper">
-            <!-- 動的コンテンツ -->
-            <div class="spot-content">
-                <article class="info-container"></article>
-                <aside><div class="info-sidebar-container"></div></aside>
-            </div>
-        </main>
-    </div>
-    
-    <!-- フッター -->
-    <%- include('footer') %>   
+        <div id="SPOT-INFO">
+            <!-- メイン   -->
+            <main class="wrapper">
+                <!-- 動的コンテンツ -->
+                <div class="spot-content">
+                    <article class="info-container"></article>
+                    <aside>
+                        <div class="info-sidebar-container"></div>
+                    </aside>
+                </div>
+            </main>
+        </div>
 
-    <!-- js -->
-    <script>
-        const apiUrl = 'http://localhost:3000/api/fishingSpots'; // サーバーのAPIエンドポイント
-    
-        // APIからデータを取得してHTMLに埋め込む関数
-        const fetchAndDisplaySpotInfo = async () => {
-            try {
-                const response = await fetch(apiUrl);
-                const spots = await response.json();
+        <!-- フッター -->
+        <%- include('footer') %>
 
-                // クエリパラメータの取得
-                const urlParams = new URLSearchParams(window.location.search);
-                const placeQuery = urlParams.get('place'); // URLから'place'クエリパラメータを取得
+            <!-- js -->
+            <script>
+                const apiUrl = 'http://localhost:3000/api/fishingSpots'; // サーバーのAPIエンドポイント
 
-                // 釣り場データをフィルタリング
-                const filteredSpots = spots.filter(spot => spot.name === placeQuery);
+                // APIからデータを取得してHTMLに埋め込む関数
+                const fetchAndDisplaySpotInfo = async () => {
+                    try {
+                        const response = await fetch(apiUrl);
+                        const spots = await response.json();
 
-                // 市ごとにデータをグループ化
-                const groupedByCity = spots.reduce((acc, spot) => {
-                    if (!acc[spot.cityKanji]) {
-                        acc[spot.cityKanji] = [];
-                    }
-                    acc[spot.cityKanji].push(spot);
-                    return acc;
-                }, {});
+                        // クエリパラメータの取得
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const placeQuery = urlParams.get('place'); // URLから'place'クエリパラメータを取得
 
-                // 釣り場が見つからない場合の処理
-                if (filteredSpots.length === 0) {
-                    throw new Error('指定された釣り場が見つかりません。');
-                }
+                        // 釣り場データをフィルタリング
+                        const filteredSpots = spots.filter(spot => spot.name === placeQuery);
 
-                // 釣り場の表示処理
-                const content = document.querySelector('.info-container'); // クラス名で要素を取得
-                content.innerHTML = ''; // コンテナをクリア
+                        // 市ごとにデータをグループ化
+                        const groupedByCity = spots.reduce((acc, spot) => {
+                            if (!acc[spot.cityKanji]) {
+                                acc[spot.cityKanji] = [];
+                            }
+                            acc[spot.cityKanji].push(spot);
+                            return acc;
+                        }, {});
 
-                // filteredSpotsの最初の要素を使用
-                const spot = filteredSpots[0];
+                        // 釣り場が見つからない場合の処理
+                        if (filteredSpots.length === 0) {
+                            throw new Error('指定された釣り場が見つかりません。');
+                        }
 
-                const spotItem = document.createElement('div');
-                spotItem.innerHTML = `
+                        // 釣り場の表示処理
+                        const content = document.querySelector('.info-container'); // クラス名で要素を取得
+                        content.innerHTML = ''; // コンテナをクリア
+
+                        // filteredSpotsの最初の要素を使用
+                        const spot = filteredSpots[0];
+
+                        const spotItem = document.createElement('div');
+                        spotItem.innerHTML = `
                     <header>
                         <p>${spot.nameHurigana}</p>
                         <h1>${spot.nameKanji}</h1>
@@ -94,59 +98,59 @@
                     </div>
                 `;
 
-                content.appendChild(spotItem);
+                        content.appendChild(spotItem);
 
-            } catch (error) {
-                console.error('釣り場データ取得エラー:', error);
-                const content = document.querySelector('.info-container');
-                content.innerHTML = `<p>${error.message}</p>`;
-            }
-        };
+                    } catch (error) {
+                        console.error('釣り場データ取得エラー:', error);
+                        const content = document.querySelector('.info-container');
+                        content.innerHTML = `<p>${error.message}</p>`;
+                    }
+                };
 
-        const fetchAndDisplaySpotsSuggest = async () => {
-            try {
-                // APIからデータを取得
-                const response = await fetch(apiUrl);
-                const spots = await response.json();
+                const fetchAndDisplaySpotsSuggest = async () => {
+                    try {
+                        // APIからデータを取得
+                        const response = await fetch(apiUrl);
+                        const spots = await response.json();
 
-                // クエリパラメータの取得
-                const urlParams = new URLSearchParams(window.location.search);
-                const placeQuery = urlParams.get('place'); // URLから'place'クエリパラメータを取得
+                        // クエリパラメータの取得
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const placeQuery = urlParams.get('place'); // URLから'place'クエリパラメータを取得
 
-                if (!placeQuery) {
-                    throw new Error('サイドバーを表示するための場所が指定されていません。');
-                }
+                        if (!placeQuery) {
+                            throw new Error('サイドバーを表示するための場所が指定されていません。');
+                        }
 
-                // 現在の釣り場データを取得
-                const currentSpot = spots.find(spot => spot.name === placeQuery);
-                if (!currentSpot) {
-                    throw new Error('指定された釣り場データが見つかりません。');
-                }
+                        // 現在の釣り場データを取得
+                        const currentSpot = spots.find(spot => spot.name === placeQuery);
+                        if (!currentSpot) {
+                            throw new Error('指定された釣り場データが見つかりません。');
+                        }
 
-                // 同じ市に属する釣り場をフィルタリング
-                const filteredSpots = spots.filter(spot => spot.city === currentSpot.city && spot.name !== currentSpot.name);
-                if (filteredSpots.length === 0) {
-                    throw new Error('同じ市の釣り場が見つかりません。');
-                }
+                        // 同じ市に属する釣り場をフィルタリング
+                        const filteredSpots = spots.filter(spot => spot.city === currentSpot.city && spot.name !== currentSpot.name);
+                        if (filteredSpots.length === 0) {
+                            throw new Error('同じ市の釣り場が見つかりません。');
+                        }
 
-                // サイドバーの表示処理
-                const sidebar = document.querySelector('.info-sidebar-container'); // クラス名で要素を取得
-                sidebar.innerHTML = ''; // サイドバーをクリア
+                        // サイドバーの表示処理
+                        const sidebar = document.querySelector('.info-sidebar-container'); // クラス名で要素を取得
+                        sidebar.innerHTML = ''; // サイドバーをクリア
 
-                // サイドバーに題名を表示
-                if (filteredSpots.length > 0) {
-                    const sidebarTitle = document.createElement('h2');
-                    sidebarTitle.textContent = filteredSpots[0].cityKanji; // 配列の最初の要素から cityKanji を取得
-                    sidebar.appendChild(sidebarTitle);
-                } else {
-                    console.warn('filteredSpots 配列が空です。');
-                }
+                        // サイドバーに題名を表示
+                        if (filteredSpots.length > 0) {
+                            const sidebarTitle = document.createElement('h2');
+                            sidebarTitle.textContent = filteredSpots[0].cityKanji; // 配列の最初の要素から cityKanji を取得
+                            sidebar.appendChild(sidebarTitle);
+                        } else {
+                            console.warn('filteredSpots 配列が空です。');
+                        }
 
 
-                // サイドバーに釣り場関連データを表示
-                filteredSpots.forEach(spot => {
-                    const sidebarItem = document.createElement('div');
-                    sidebarItem.innerHTML = `
+                        // サイドバーに釣り場関連データを表示
+                        filteredSpots.forEach(spot => {
+                            const sidebarItem = document.createElement('div');
+                            sidebarItem.innerHTML = `
                         <a class="spot-info-item" href="/fishing-place/info?place=${spot.name}">
                             <div class="spot-item">
                                 <img class="item-img" src="${spot.imageUrl || '/images/default.jpeg'}" alt="${spot.nameKanji}の写真">
@@ -157,23 +161,24 @@
                             </div>
                         </a>
                     `;
-                    sidebar.appendChild(sidebarItem);
-                });
-            } catch (error) {
-                console.error('サイドバーデータ取得エラー:', error);
-                const sidebar = document.querySelector('.info-sidebar-container');
-                sidebar.innerHTML = `<p>${error.message}</p>`;
-            }
-        };
-    
-        // 関数を呼び出して表示を更新
-        fetchAndDisplaySpotInfo();
-        fetchAndDisplaySpotsSuggest();
-        
-    </script>
+                            sidebar.appendChild(sidebarItem);
+                        });
+                    } catch (error) {
+                        console.error('サイドバーデータ取得エラー:', error);
+                        const sidebar = document.querySelector('.info-sidebar-container');
+                        sidebar.innerHTML = `<p>${error.message}</p>`;
+                    }
+                };
 
-    <!-- JavaScript -->
-    <script src="/js/main.js"></script>
+                // 関数を呼び出して表示を更新
+                fetchAndDisplaySpotInfo();
+                fetchAndDisplaySpotsSuggest();
+
+            </script>
+
+            <!-- JavaScript -->
+            <script src="/js/main.js"></script>
 
 </body>
+
 </html>
