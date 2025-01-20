@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,62 +8,56 @@
 </head>
 
 <body>
-
+    <!-- ヘッダー -->
+    <%- include('header') %>
+    <!-- タイトル -->
+    <h1>初心者向けページ</h1>
     <div id="BIGINER">
-        <style>
-
-        </style>
         <!-- メイン -->
-        <main class="wrapper">
-            <!-- 題名 -->
-            <h1>初心者向けページ</h1>
-            <div class="beginner-content">
-                <article>
-                    <h2>コンテンツ</h2>
-                    <div class="beginner-container">
-                        <a href="/beginner/type">
-                            <div class="beginner-item">
-                                <div class="item-info">
-                                    <h3>釣りの種類</h3>
-                                    <p class="item-subinfo">
-                                        釣りの種類の定義は、さまざまなジャンルでカテゴライズすることが出来ますが、この記事では大きく「餌を使う釣り」か「餌を使わない釣り（ルアー釣り）」かの2つに分けて紹介していきます。
-                                    </p>
-                                    <p>※各釣りの難易度を星マークで表しています</p>
-                                </div>
+        <main class="beginner-content wrapper">
+            <article>
+                <h2>コンテンツ</h2>
+                <div class="beginner-container">
+                    <a href="/beginner/type">
+                        <div class="beginner-item">
+                            <div class="item-info">
+                                <h3>釣りの種類</h3>
+                                <p class="item-subinfo">
+                                    釣りの種類の定義は、さまざまなジャンルでカテゴライズすることが出来ますが、この記事では大きく「餌を使う釣り」か「餌を使わない釣り（ルアー釣り）」かの2つに分けて紹介していきます。
+                                </p>
+                                <p>※各釣りの難易度を星マークで表しています</p>
                             </div>
-                        </a>
-                        <a href="/beginner/tool">
-                            <div class="beginner-item">
-                                <div class="item-info">
-                                    <h3>道具</h3>
-                                    <p class="item-subinfo">これさえあれば大丈夫！「釣りをするのに欠かせない道具」と「あると便利な道具」をまとめてみました。</p>
-                                </div>
+                        </div>
+                    </a>
+                    <a href="/beginner/tool">
+                        <div class="beginner-item">
+                            <div class="item-info">
+                                <h3>道具</h3>
+                                <p class="item-subinfo">これさえあれば大丈夫！「釣りをするのに欠かせない道具」と「あると便利な道具」をまとめてみました。</p>
                             </div>
-                        </a>
-                        <a href="/beginner/manner">
-                            <div class="beginner-item">
-                                <div class="item-info">
-                                    <h3>マナー</h3>
-                                    <p class="item-subinfo">
-                                        近年、釣り人による行動で釣り禁止となる場所が増えているようです。釣りを始めたばかりの方には知っておいて欲しいマナーやルール、ベテランさんには当たり前のことだと思いますが、しっかりと守って頂きたいと思います。
-                                    </p>
-                                </div>
+                        </div>
+                    </a>
+                    <a href="/beginner/manner">
+                        <div class="beginner-item">
+                            <div class="item-info">
+                                <h3>マナー</h3>
+                                <p class="item-subinfo">
+                                    近年、釣り人による行動で釣り禁止となる場所が増えているようです。釣りを始めたばかりの方には知っておいて欲しいマナーやルール、ベテランさんには当たり前のことだと思いますが、しっかりと守って頂きたいと思います。
+                                </p>
                             </div>
-                        </a>
-                        <a href="beginner-info-etc.html">
-                            <div class="beginner-item">
-                                <div class="item-info">
-                                    <h3>その他</h3>
-                                    <p class="item-subinfo">軽い説明</p>
-                                </div>
+                        </div>
+                    </a>
+                    <a href="beginner-info-etc.html">
+                        <div class="beginner-item">
+                            <div class="item-info">
+                                <h3>その他</h3>
+                                <p class="item-subinfo">軽い説明</p>
                             </div>
-                        </a>
-                    </div>
-                </article>
-            </div>
+                        </div>
+                    </a>
+                </div>
+            </article>
         </main>
-
-
     </div>
     <!-- JavaScript -->
     <script src="js/main.js"></script>
