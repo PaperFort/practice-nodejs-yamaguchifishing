@@ -449,7 +449,125 @@ h2::before {
 }
 /*beginner-info-tool
 -------------------------------*/
+/* 基本設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0;
+}
 
+/* メインラッパー */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 釣り情報カードのレイアウト */
+.beginner-info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列に並べる */
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* カードのスタイル */
+.beginner-info-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* カードのタイトル */
+.beginner-info-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* 情報リスト */
+.spot-info-list {
+    margin-bottom: 15px;
+}
+
+.spot-info-list ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.spot-info-list li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #34495e;
+}
+
+/* カード内の説明 */
+.beginner-info-item p {
+    font-size: 1em;
+    color: #666666;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+h1 {
+  color: #5f9ea0;
+  font-size: 2.5em;
+  position: relative;
+  padding: 1.5rem 1rem;
+}
+
+h1:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  content: '';
+  background-image: -webkit-repeating-linear-gradient(135deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
+  background-image: repeating-linear-gradient(-45deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
+  background-size: 7px 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+
+
+/* タイトル部分 */
+h2 {
+    position: relative;
+  padding: 0.5em;
+  background: #a6d3c8;
+  color: white;
+  margin-top: 6%;
+}
+
+h2::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
+}
+
+/* メディアクエリ（レスポンシブ対応） */
+@media (max-width: 768px) {
+    .beginner-info-container {
+        grid-template-columns: 1fr; /* モバイル用に1列に */
+    }
+
+    h1 {
+        font-size: 2em; /* 小さい画面でも見やすいように調整 */
+    }
+}
 /*beginner-info-manner
 -------------------------------*/
 
