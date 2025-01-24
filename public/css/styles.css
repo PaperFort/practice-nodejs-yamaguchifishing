@@ -8,23 +8,69 @@ body {
   font-family: "Yu Gothic Medium", "YuGothic";
   line-height: 1.7;
   margin: 0px;
-  color: #432;
+  color: #333333;
 }
+/* a */
 a {
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
 }
 a:hover {
-  color: #432;
+  color: #7f9eae;
 }
+/* img */
 img {
   max-width: 100%;
 }
+/* h1 */
+h1 {
+  color: #5f9ea0;
+  font-size: 3em;
+  position: relative;
+  margin: 0px 0px;
+	text-align: center;
+}
+h1:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  content: '';
+  background-image: -webkit-repeating-linear-gradient(135deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
+  background-image: repeating-linear-gradient(-45deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
+  background-size: 7px 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* h2	*/
+h2 {
+	position: relative;
+	background: #a6d3c8;
+	color: white;
+	padding-left: 15px;
+}
+h2::before {
+	position: absolute;
+	content: '';
+	top: 100%;
+	left: 0;
+	border: none;
+	border-bottom: solid 15px transparent;
+	border-right: solid 20px rgb(149, 158, 155);
+}
+
+/* h3	*/
+
+
+/* wrapper */
 .wrapper {
   /*ページの最大幅を指定*/
   max-width: 1100px;
   margin: 0 auto;
 }
+/* list	*/
 .list {
   list-style-type: none;
   margin: 0px;
@@ -36,20 +82,22 @@ img {
 .list a:hover {
   color: #432;
 }
+/* article */
 article {
   flex: 1 1 800px; /* 基本は800pxの幅、縮小可能 */
   margin-left: 5px;
   margin-right: 10px;
 }
 article h2 {
-  margin-left: 0px;
-  width: 100%;
+  width: auto;
 }
+/* aside */
 aside {
   flex: 1 1 250px; /* 基本は250pxの幅、縮小可能 */
 }
 aside h2 {
-  margin-left: 5px;
+	background-color: #A8BFA3;
+  width: auto;
 }
 
 /*HEADER
@@ -102,13 +150,6 @@ aside h2 {
   font-size: 20px;
 }
 
-.main-nav a {
-  color: #ffffff;
-}
-
-.main-nav a:hover {
-  color: #432;
-}
 /*index
 --------------------------------*/
 #INDEX-PAGE svg {
@@ -117,7 +158,7 @@ aside h2 {
 	display: block;
 	margin: 0 auto;
 }
-#INDEX-PAGE .text-explain {
+.text-explain {
   height:10vh;
   text-align: center;
   font-size: 40px;
@@ -125,37 +166,6 @@ aside h2 {
 
 /*spot-list
 -------------------------------*/
-h1 {
-	font-size: 40px;
-	color: #5f9ea0;
-	margin-left: 30%;
-	position: relative;
-	display: inline-block;
-	padding: 0 55px;
-	text-align: center;
-	/* テキストを中央寄せ */
-}
-
-h1:before,
-h1:after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	display: inline-block;
-	width: 80px;
-	height: 3px;
-	background-color: #5f9ea0;
-}
-
-h1:before {
-	left: -55px;
-	/* 左側の線の位置を調整 */
-}
-
-h1:after {
-	right: -55px;
-	/* 右側の線の位置を調整 */
-}
 .spot-content {
   display: flex;
   flex-wrap: wrap; /* 横幅が足りなくなると自動的に折り返す */
@@ -195,9 +205,13 @@ h1:after {
   background-color: #0bd;
 }
 
-
 /*spot-info
 -------------------------------*/
+#SPOT-INFO .text-explain{
+  font-size: 20px;
+  height: auto;
+  margin: 0px;
+}
 .spot-info-art {
   display: flex;
   margin: 5px;
@@ -239,25 +253,6 @@ h1:after {
 }
 
 /* メインコンテンツ */
-
-
-
-h2 {
-	position: relative;
-	background: #a6d3c8;
-	color: white;
-}
-
-h2::before {
-	position: absolute;
-	content: '';
-	top: 100%;
-	left: 0;
-	border: none;
-	border-bottom: solid 15px transparent;
-	border-right: solid 20px rgb(149, 158, 155);
-}
-
 .beginner-content {
 	width: 100%;
 	padding: 20px;
@@ -302,7 +297,7 @@ h2::before {
 
 /* アイテム内のテキスト */
 .item-info h3 {
-	color: #5f9ea0;
+
 	font-size: 1.6rem;
 	margin-bottom: 20px;
 	font-weight: bold;
@@ -382,30 +377,6 @@ body {
     margin-top: 15px;
 }
 
-h1 {
-  color: #5f9ea0;
-  font-size: 3em;
-  position: relative;
-  padding: 1.5rem 1rem;
-}
-
-h1:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  content: '';
-  background-image: -webkit-repeating-linear-gradient(135deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-  background-image: repeating-linear-gradient(-45deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-  background-size: 7px 7px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-
-
-
 /* タイトル部分 */
 h2 {
     position: relative;
@@ -423,16 +394,7 @@ h2::before {
   border-right: solid 20px rgb(149, 158, 155);
 }
 
-/* メディアクエリ（レスポンシブ対応） */
-@media (max-width: 768px) {
-    .beginner-info-container {
-        grid-template-columns: 1fr; /* モバイル用に1列に */
-    }
 
-    h1 {
-        font-size: 2em; /* 小さい画面でも見やすいように調整 */
-    }
-}
 /*beginner-info-tool
 -------------------------------*/
 /* 基本設定 */
@@ -499,31 +461,6 @@ body {
     line-height: 1.6;
     margin-top: 15px;
 }
-
-h1 {
-  color: #5f9ea0;
-  font-size: 2.5em;
-  position: relative;
-  padding: 1.5rem 1rem;
-}
-
-h1:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  content: '';
-  background-image: -webkit-repeating-linear-gradient(135deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-  background-image: repeating-linear-gradient(-45deg, #5f9ea0, #5f9ea0 1px, transparent 2px, transparent 5px);
-  background-size: 7px 7px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-
-
-
 /* タイトル部分 */
 h2 {
     position: relative;
@@ -539,17 +476,6 @@ h2::before {
   border: none;
   border-bottom: solid 15px transparent;
   border-right: solid 20px rgb(149, 158, 155);
-}
-
-/* メディアクエリ（レスポンシブ対応） */
-@media (max-width: 768px) {
-    .beginner-info-container {
-        grid-template-columns: 1fr; /* モバイル用に1列に */
-    }
-
-    h1 {
-        font-size: 2em; /* 小さい画面でも見やすいように調整 */
-    }
 }
 /*beginner-info-manner
 -------------------------------*/
@@ -578,9 +504,7 @@ border-bottom: solid 15px transparent;
 border-right: solid 20px rgb(149, 158, 155);
 }
 
-h3 {
-  margin-top: 4%;
-}
+
 /*footer
 -------------------------------*/
 .footer {
@@ -619,3 +543,15 @@ h3 {
   font-size: .8em;
 }
   
+
+/* メディアクエリ（レスポンシブ対応） 
+-------------------------------*/
+@media (max-width: 768px) {
+	.beginner-info-container {
+			grid-template-columns: 1fr; /* モバイル用に1列に */
+	}
+
+	h1 {
+			font-size: 2em; /* 小さい画面でも見やすいように調整 */
+	}
+}

@@ -17,9 +17,7 @@
         <main class="spot-content wrapper">
             <!-- 動的コンテンツ -->
             <article class="info-container"></article>
-            <aside>
-                <div class="info-sidebar-container"></div>
-            </aside>
+            <aside class="info-sidebar-container"></aside>
         </main>
     </div>
 
@@ -66,10 +64,10 @@
 
                 const spotItem = document.createElement('div');
                 spotItem.innerHTML = `
-            <header>
-                <p>${spot.nameHurigana}</p>
+            <div>
+                <p class="text-explain">${spot.nameHurigana}</p>
                 <h1>${spot.nameKanji}</h1>
-            </header>
+            </div>
             <div class="spot-info-art">
                 <img class="spot-img" src="${spot.imageUrl || '/images/default.jpeg'}" alt="${spot.nameKanji}の写真">
                 <div class="spot-info-info">
